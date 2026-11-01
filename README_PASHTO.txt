@@ -1,18 +1,24 @@
-TradeLux Android Project (Android 14 compatible project setup)
+TradeLux Android APK Project
 
-دا د Android Studio پروژه ده، APK لا نه دی.
+دا د Android اصلي پروژه ده چې د TradeLux آفلاين پاڼه د Android WebView دننه پرانيزي.
+دا ZIP خپله APK نه ده؛ GitHub Actions به APK جوړ کړي.
 
-د APK جوړولو لپاره:
-1) دا ZIP په کمپیوټر کې Extract کړئ.
-2) Android Studio خلاص کړئ او Open ووهئ.
-3) د TradeLux_Android_Project فولډر انتخاب کړئ.
-4) د Gradle Sync بشپړېدو ته انتظار وباسئ.
-5) Build > Build Bundle(s) / APK(s) > Build APK(s) وټاکئ.
-6) APK د app/build/outputs/apk/debug/app-debug.apk په ځای کې پیدا کېږي.
+د جوړولو لنډه لاره:
+1. د GitHub خپل TradeLux- repository ته لاړ شئ.
+2. د پخوانیو پروژوي فایلونو پر ځای د دې ZIP ټول فایلونه upload/replace کړئ.
+   مهم: د ZIP دننه .github فولډر هم upload کړئ.
+3. ټول بدلونونه commit کړئ.
+4. د Actions برخه کې "Build TradeLux APK" run وګورئ.
+5. که شین (Success) شو، د run پاڼې لاندې Artifacts کې TradeLux-APK ښکته کړئ.
+6. ZIP extract کړئ او app-debug.apk په Samsung ټابلیټ کې نصب کړئ.
 
-مهم:
-- پروژه د Android 14 ټابلیټ لپاره برابره شوې (minSdk 23، targetSdk 35).
-- اپلیکیشن انټرنېټ permission نه غواړي او HTML د اپ دننه ساتل شوی.
-- معلومات د WebView local storage کې ساتل کېږي؛ د اپ پاکول/Uninstall کول یې له منځه وړلی شي.
-- دا لومړنی Android wrapper دی، نه د Google Play لپاره release-signed APK.
-- د اصلي کاروبار لپاره تر استعمال مخکې ټولې معاملې او backup/restore په ازمایښتي معلوماتو وازمویئ.
+د APK ځانګړنې:
+- Android applicationId: com.tradelux.app
+- Minimum Android: 6.0 (API 23)
+- Target Android: 15 (API 35)
+- Offline HTML asset په APK کې دننه دی؛ لومړی ځل انټرنېټ ته اړتیا نه لري.
+
+مهم او رښتینی وضاحت:
+- دا پروژه APK جوړولو ته چمتو شوې، خو APK تر هغه نه ده تایید شوې چې GitHub Actions په بریالیتوب build نه وي کړې.
+- په دننه کې د TradeLux HTML نسخه ده. ځینې پرمختللې حسابدارۍ کړنې لا بشپړې/حسابرسي شوې نه دي. د حقیقي حسابونو لپاره تر بشپړې ازموینې مخکې یوازینۍ سرچینه مه ګرځوئ.
+- د اپ دننه معلومات د همدې وسیلې په WebView ذخیره کې ساتل کېږي. Backup په منظم ډول واخلئ.
